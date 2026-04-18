@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    "moduleResolution": "bundler",
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "module": "nodenext",
+    "target": "esnext"
+  }
+}
