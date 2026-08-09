@@ -1,5 +1,5 @@
 import env from '@/config/env'
-import { prisma } from '@/lib/prisma'
+import { findById } from '@/modules/users/users.repository'
 import passport from 'passport'
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt'
 
@@ -11,12 +11,7 @@ passport.use(
     },
     async (payload, done) => {
       try {
-        const user = await prisma.user.findUnique({
-          // TODO: invert dependencie
-          where: {
-            id: payload.sub,
-          },
-        })
+        const user = await findById(payload.sub)
 
         if (!user) return done(null, false)
 
