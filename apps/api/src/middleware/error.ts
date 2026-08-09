@@ -1,3 +1,4 @@
+import { AppError } from '@/errors'
 import { Request, Response, NextFunction } from 'express'
 import { ZodError } from 'zod'
 
@@ -7,6 +8,13 @@ export function errorHandler(
   res: Response,
   next: NextFunction,
 ): void {
+  if (err instanceof AppError) {
+    res.status(err.statusCode).json({
+      message: err.message,
+    })
+    return
+  }
+
   if (err instanceof ZodError) {
     res.status(400).json({
       message: 'Validation failed',
