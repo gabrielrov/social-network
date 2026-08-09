@@ -17,7 +17,7 @@ export async function login(data: LoginDTO): Promise<string> {
   return token
 }
 
-export async function register(data: registerDTO) {
+export async function register(data: registerDTO): Promise<void> {
   const userFound = await findByUsername(data.username)
 
   if (userFound) throw new Error('User already exists') // TODO: create custom error 409

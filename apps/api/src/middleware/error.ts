@@ -6,12 +6,13 @@ export function errorHandler(
   req: Request,
   res: Response,
   next: NextFunction,
-) {
+): void {
   if (err instanceof ZodError) {
-    return res.status(400).json({
+    res.status(400).json({
       message: 'Validation failed',
       errors: err.issues,
     })
+    return
   }
 
   res.status(500).json({
