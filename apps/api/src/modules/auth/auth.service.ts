@@ -1,6 +1,21 @@
-import { registerDTO } from '@/modules/auth/auth.schema'
+import { LoginDTO, RegisterDTO } from '@/modules/auth/auth.schema'
 import { createUser, findByUsername } from '@/modules/users/users.repository'
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import env from '@/config/env'
+
+export async function login(data: LoginDTO): Promise<string> {
+  const user = await findByUsername(data.username)
+
+  if (!user) throw new Error('User not found') // TODO: custom error 401
+
+  const isValidPassword = await bcrypt.compare(data.password, user.passwordHash)
+  if (!isValidPassword) throw new Error('Invalid password') // TODO: custom error 401
+
+  const token = jwt.sign({ sub: user.id }, env.jwtSecret, { expiresIn: '2d' })
+
+  return token
+}
 
 export async function register(data: registerDTO) {
   const userFound = await findByUsername(data.username)

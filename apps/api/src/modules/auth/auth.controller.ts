@@ -2,12 +2,11 @@ import { Request, Response } from 'express'
 import { loginSchema, registerSchema } from '@/modules/auth/auth.schema'
 import * as authService from '@/modules/auth/auth.service'
 
-export function login(req: Request, res: Response) {
+export async function login(req: Request, res: Response) {
   const data = loginSchema.parse(req.body)
+  const token = await authService.login(data)
 
-  // TODO: service function
-
-  res.send(data)
+  res.json({ token })
 }
 
 export async function register(req: Request, res: Response) {
