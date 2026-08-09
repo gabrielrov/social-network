@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { loginSchema, registerSchema } from '@/modules/auth/auth.schema'
+import * as authService from '@/modules/auth/auth.service'
 
 export function login(req: Request, res: Response) {
   const data = loginSchema.parse(req.body)
@@ -9,8 +10,9 @@ export function login(req: Request, res: Response) {
   res.send(data)
 }
 
-export function register(req: Request, res: Response) {
+export async function register(req: Request, res: Response) {
   const data = registerSchema.parse(req.body)
+  await authService.register(data)
 
-  res.send(data)
+  res.sendStatus(201)
 }

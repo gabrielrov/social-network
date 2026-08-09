@@ -12,6 +12,7 @@ passport.use(
     async (payload, done) => {
       try {
         const user = await prisma.user.findUnique({
+          // TODO: invert dependencie
           where: {
             id: payload.sub,
           },
