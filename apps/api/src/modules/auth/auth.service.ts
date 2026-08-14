@@ -18,7 +18,7 @@ export async function login(data: LoginDTO): Promise<string> {
   return token
 }
 
-export async function register(data: registerDTO): Promise<void> {
+export async function register(data: RegisterDTO): Promise<void> {
   const userFound = await findByUsername(data.username)
 
   if (userFound) throw new ConflictError('User already exists')
