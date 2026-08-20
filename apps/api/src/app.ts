@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import env from '@/config/env'
 import router from '@/routes'
 import { errorHandler } from '@/middleware/error'
