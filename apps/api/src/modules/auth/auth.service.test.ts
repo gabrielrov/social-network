@@ -30,6 +30,7 @@ describe('login service', () => {
       surname: 'user',
       passwordHash: await bcrypt.hash(loginData.password, 10),
       role: 'USER',
+      createdAt: new Date(),
     }
 
     usersRepository.findByUsername.mockResolvedValue(mockUser)
@@ -64,6 +65,7 @@ describe('login service', () => {
       surname: 'user',
       passwordHash: await bcrypt.hash('valid_password', 10),
       role: 'USER',
+      createdAt: new Date(),
     }
 
     usersRepository.findByUsername.mockResolvedValue(mockUser)
@@ -89,6 +91,7 @@ describe('register service', async () => {
       surname: 'user',
       passwordHash: 'hash',
       role: 'USER',
+      createdAt: new Date(),
     }
 
     usersRepository.findByUsername.mockResolvedValue(mockUser)
