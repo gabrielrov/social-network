@@ -4,7 +4,7 @@ import { login, register } from '@/modules/auth/auth.service'
 import bcrypt from 'bcryptjs'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import jwt from 'jsonwebtoken'
-import env from '@/config/env'
+import {envWrapper} from '@/config/env'
 import { ConflictError, UnauthorizedError } from '@/errors'
 
 vi.mock(import('@/modules/users/users.repository'))
@@ -36,7 +36,7 @@ describe('login service', () => {
     usersRepository.findByUsername.mockResolvedValue(mockUser)
 
     const token = await login(loginData)
-    const payload = jwt.verify(token, env.jwtSecret)
+    const payload = jwt.verify(token, envWrapper.jwtSecret)
 
     expect(payload.sub).toBe(mockUser.id)
   })

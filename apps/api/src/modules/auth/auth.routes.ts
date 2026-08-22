@@ -1,9 +1,7 @@
 import { login, register } from '@/modules/auth/auth.controller'
 import { Router } from 'express'
 
-const router = Router()
+export const authRouter = Router()
 
-router.post('/login', login)
-router.post('/register', register)
-
-export default router
+authRouter.post('/login', login)
+authRouter.post('/register', register)

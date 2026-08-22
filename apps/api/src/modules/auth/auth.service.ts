@@ -2,7 +2,7 @@ import { LoginDTO, RegisterDTO } from '@/modules/auth/auth.schema'
 import { createUser, findByUsername } from '@/modules/users/users.repository'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import env from '@/config/env'
+import { envWrapper } from '@/config/env'
 import { ConflictError, UnauthorizedError } from '@/errors'
 
 export async function login(data: LoginDTO): Promise<string> {
@@ -13,7 +13,9 @@ export async function login(data: LoginDTO): Promise<string> {
   const isValidPassword = await bcrypt.compare(data.password, user.passwordHash)
   if (!isValidPassword) throw new UnauthorizedError('Invalid password')
 
-  const token = jwt.sign({ sub: user.id }, env.jwtSecret, { expiresIn: '2d' })
+  const token = jwt.sign({ sub: user.id }, envWrapper.jwtSecret, {
+    expiresIn: '2d',
+  })
 
   return token
 }

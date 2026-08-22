@@ -1,4 +1,4 @@
-import env from '@/config/env'
+import { envWrapper } from '@/config/env'
 import { findById } from '@/modules/users/users.repository'
 import passport from 'passport'
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt'
@@ -7,7 +7,7 @@ passport.use(
   new JwtStrategy(
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: env.jwtSecret,
+      secretOrKey: envWrapper.jwtSecret,
     },
     async (payload, done) => {
       try {
