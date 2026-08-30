@@ -1,8 +1,7 @@
 {
-  "name": "web",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@repo/web",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

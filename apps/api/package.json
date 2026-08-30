@@ -1,8 +1,7 @@
 {
-  "name": "api",
+  "name": "@repo/api",
   "type": "module",
   "version": "1.0.0",
-  "main": "app.mjs",
   "scripts": {
     "dev": "tsx --watch --inspect src/app.ts",
     "test": "vitest",
@@ -10,10 +9,6 @@
     "start": "node dist/app.js",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
