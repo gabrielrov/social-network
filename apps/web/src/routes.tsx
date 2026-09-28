@@ -1,6 +1,7 @@
 import { RouteObject } from 'react-router-dom'
 import { ProtectedRoute } from '@/feats/auth/components/protected-route'
 import { authLoader } from '@/feats/auth/utils/auth-loader'
+import { LoginPage } from '@/pages/login-page'
 
 export const routes: RouteObject[] = [
   {
@@ -17,6 +18,6 @@ export const routes: RouteObject[] = [
   },
   {
     path: '/login',
-    // TODO: element: <LoginPage />,
+    element: <LoginPage />,
   },
 ]
