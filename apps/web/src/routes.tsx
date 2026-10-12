@@ -3,6 +3,7 @@ import { ProtectedRoute } from '@/feats/auth/components/protected-route'
 import { authLoader } from '@/feats/auth/utils/auth-loader'
 import { AuthLayout } from '@/pages/auth/AuthLayout'
 import { LoginForm } from '@/pages/auth/LoginForm'
+import { RegisterForm } from '@/pages/auth/RegisterForm'
 
 export const routes: RouteObject[] = [
   {
@@ -28,10 +29,14 @@ export const routes: RouteObject[] = [
     ),
     children: [{ element: <LoginForm />, index: true }],
   },
-  // TODO:
-  // {
-  //   path: '/register',
-  //   element: <AuthLayout />,
-  // children: [{ element: <RegisterForm/>, index: true }],
-  // },
+  {
+    path: '/register',
+    element: (
+      <AuthLayout
+        title="Join us Today!"
+        subtitle="Fill in your data to get started"
+      />
+    ),
+    children: [{ element: <RegisterForm />, index: true }],
+  },
 ]
