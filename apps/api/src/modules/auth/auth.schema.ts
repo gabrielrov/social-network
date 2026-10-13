@@ -16,9 +16,14 @@ export const registerSchema = z
     password: z.string().nonempty(),
     confirmPassword: z.string().nonempty(),
   })
-  .refine((data) => data.password == data.confirmPassword, {
-    error: 'Passwords do not match',
-    path: ['confirmPassword'],
+  .superRefine((data, ctx) => {
+    if (data.password !== data.confirmPassword) {
+      ctx.addIssue({
+        code: 'password_mismatch' as never,
+        message: 'Passwords do not match',
+        path: ['confirmPassword'],
+      })
+    }
   })
 
 export type RegisterDTO = z.infer<typeof registerSchema>
