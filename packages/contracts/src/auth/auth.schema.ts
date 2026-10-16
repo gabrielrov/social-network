@@ -13,7 +13,7 @@ export const registerSchema = z
     firstName: z.string().nonempty().trim(),
     surname: z.string().nonempty().trim(),
 
-    password: z.string().nonempty(),
+    password: z.string().min(6),
     confirmPassword: z.string().nonempty(),
   })
   .superRefine((data, ctx) => {
