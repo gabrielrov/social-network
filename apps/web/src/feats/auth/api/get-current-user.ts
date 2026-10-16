@@ -10,9 +10,7 @@ export async function getCurrentUser(token: string): Promise<object | null> {
     return null
   }
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch user')
-  }
+  if (!res.ok) throw new Error('Failed to fetch user')
 
   return await res.json()
 }
