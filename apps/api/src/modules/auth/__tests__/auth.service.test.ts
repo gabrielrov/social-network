@@ -1,10 +1,10 @@
 import { User } from '@/generated/prisma/client'
-import { LoginDTO, RegisterDTO } from '@/modules/auth/auth.schema'
+import { LoginDTO, RegisterDTO } from '@repo/contracts/auth'
 import { login, register } from '@/modules/auth/auth.service'
 import bcrypt from 'bcryptjs'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import jwt from 'jsonwebtoken'
-import {envWrapper} from '@/config/env'
+import { envWrapper } from '@/config/env'
 import { ConflictError, UnauthorizedError } from '@/errors'
 
 vi.mock(import('@/modules/users/users.repository'))

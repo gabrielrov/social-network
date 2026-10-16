@@ -1,4 +1,4 @@
-import { LoginDTO, RegisterDTO } from '@/modules/auth/auth.schema'
+import { LoginDTO, RegisterDTO } from '@repo/contracts/auth'
 import { createUser, findByUsername } from '@/modules/users/users.repository'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
