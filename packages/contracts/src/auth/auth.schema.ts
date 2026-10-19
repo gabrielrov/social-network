@@ -17,6 +17,22 @@ export const registerSchema = z
     confirmPassword: z.string().nonempty(),
   })
   .superRefine((data, ctx) => {
+    if (data.username.includes(' ')) {
+      ctx.addIssue({
+        code: 'spaced' as never,
+        message: 'Username cannot contain spaces',
+        path: ['username'],
+      })
+    }
+
+    if (data.firstName.includes(' ')) {
+      ctx.addIssue({
+        code: 'spaced' as never,
+        message: 'First name cannot contain spaces',
+        path: ['firstName'],
+      })
+    }
+
     if (data.password !== data.confirmPassword) {
       ctx.addIssue({
         code: 'password_mismatch' as never,

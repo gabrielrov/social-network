@@ -11,6 +11,15 @@ export function getErrorMsg(
 
   const code = matchedError.code
 
+  if (code === 'spaced') {
+    if (origin == 'username') {
+      return 'Username cannot contain spaces'
+    }
+    if (origin === 'firstName') {
+      return 'First name cannot contain spaces'
+    }
+  }
+
   if (code === 'too_small') {
     if (origin === 'username') {
       return 'Create an unique username'
