@@ -1,5 +1,5 @@
 import React from 'react'
-import { RegisterDTO } from '@repo/contracts/auth'
+import { RegisterDTO } from '@repo/contracts/auth/schema'
 
 interface FormInputProps extends Omit<React.ComponentProps<'input'>, 'name'> {
   errorMsg?: string

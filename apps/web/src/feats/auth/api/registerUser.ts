@@ -1,5 +1,5 @@
 import { envWrapper } from '@/config/env'
-import { RegisterDTO } from '@repo/contracts/auth'
+import { RegisterDTO } from '@repo/contracts/auth/schema'
 
 export async function registerUser(data: RegisterDTO) {
   const res = await fetch(`${envWrapper.apiUrl}/api/auth/register`, {

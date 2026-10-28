@@ -1,4 +1,4 @@
-import { RegisterDTO } from '@repo/contracts/auth'
+import { RegisterDTO } from '@repo/contracts/auth/schema'
 
 export type FormError = {
   code: string

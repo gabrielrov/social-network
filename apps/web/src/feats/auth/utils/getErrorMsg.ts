@@ -1,5 +1,5 @@
 import { FormError } from '@/feats/auth/types'
-import { RegisterDTO } from '@repo/contracts/auth'
+import { RegisterDTO } from '@repo/contracts/auth/schema'
 
 export function getErrorMsg(
   formErrors: FormError[],

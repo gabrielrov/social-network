@@ -1,5 +1,5 @@
 import { User } from '@/generated/prisma/client'
-import { LoginDTO, RegisterDTO } from '@repo/contracts/auth'
+import { LoginDTO, RegisterDTO } from '@repo/contracts/auth/schema'
 import { login, register } from '@/modules/auth/auth.service'
 import bcrypt from 'bcryptjs'
 import { beforeEach, describe, expect, it, vi } from 'vitest'

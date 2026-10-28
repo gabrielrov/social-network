@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { loginSchema, registerSchema } from '@repo/contracts/auth'
+import { loginSchema, registerSchema } from '@repo/contracts/auth/schema'
 import * as authService from '@/modules/auth/auth.service'
 
 export async function login(req: Request, res: Response): Promise<void> {

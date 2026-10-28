@@ -4,7 +4,7 @@ import {
   loginSchema,
   RegisterDTO,
   registerSchema,
-} from '@repo/contracts/auth'
+} from '@repo/contracts/auth/schema'
 
 describe('login schema', () => {
   it('trims empty spaces', () => {
