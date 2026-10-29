@@ -1,4 +1,5 @@
 import { envWrapper } from '@/config/env'
+import { ApiError } from '@/errors'
 import { RegisterDTO } from '@repo/contracts/auth/schema'
 
 export async function registerUser(data: RegisterDTO) {
@@ -8,6 +9,6 @@ export async function registerUser(data: RegisterDTO) {
     body: JSON.stringify(data),
   })
 
-  if (res.status === 409) throw new Error('conflict_error') // TODO: improve this
-  if (!res.ok) throw new Error('Failed to register user')
+  if (res.status === 409) throw new ApiError(409)
+  if (!res.ok) throw new ApiError(res.status)
 }

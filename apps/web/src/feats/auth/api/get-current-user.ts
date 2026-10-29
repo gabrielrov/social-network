@@ -1,4 +1,5 @@
 import { envWrapper } from '@/config/env'
+import { ApiError } from '@/errors'
 
 // TODO: use User type instead of object
 export async function getCurrentUser(token: string): Promise<object | null> {
@@ -10,7 +11,7 @@ export async function getCurrentUser(token: string): Promise<object | null> {
     return null
   }
 
-  if (!res.ok) throw new Error('Failed to fetch user')
+  if (!res.ok) throw new ApiError(res.status)
 
   return await res.json()
 }
