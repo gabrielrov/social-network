@@ -11,6 +11,10 @@ export function getErrorMsg(
 
   const code = matchedError.code
 
+  if (code === 'conflict' && origin === 'username') {
+    return 'Username already exists'
+  }
+
   if (code === 'spaced') {
     if (origin == 'username') {
       return 'Username cannot contain spaces'
@@ -49,5 +53,5 @@ export function getErrorMsg(
     }
   }
 
-  return matchedError.message
+  return matchedError.message || 'Something went wrong'
 }
