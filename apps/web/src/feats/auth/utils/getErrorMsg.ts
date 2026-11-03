@@ -53,5 +53,9 @@ export function getErrorMsg(
     }
   }
 
+  if (code === 'connection') {
+    return 'Conection error'
+  }
+
   return matchedError.message || 'Something went wrong'
 }
