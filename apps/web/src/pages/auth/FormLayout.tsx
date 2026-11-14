@@ -1,4 +1,4 @@
-import brandIcon from '@/assets/brand/brand-icon.svg'
+import brandIcon from '@/assets/brand/brandIcon.svg'
 import React from 'react'
 
 interface FormLayoutProps {

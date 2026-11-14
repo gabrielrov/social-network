@@ -1,6 +1,6 @@
 import { RouteObject } from 'react-router-dom'
-import { ProtectedRoute } from '@/feats/auth/components/protected-route'
-import { authLoader } from '@/feats/auth/utils/auth-loader'
+import { ProtectedRoute } from '@/feats/auth/components/ProtectedRoute'
+import { authLoader } from '@/feats/auth/utils/authLoader'
 import { AuthLayout } from '@/pages/auth/AuthLayout'
 import { LoginForm } from '@/pages/auth/LoginForm'
 import { RegisterForm } from '@/pages/auth/RegisterForm'
