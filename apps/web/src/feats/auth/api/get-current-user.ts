@@ -1,7 +1,6 @@
 import { envWrapper } from '@/config/env'
 import { ApiError } from '@/errors'
 
-// TODO: use User type instead of object
 export async function getCurrentUser(token: string): Promise<object | null> {
   const res = await fetch(envWrapper.apiUrl + '/api/users/me', {
     headers: { Authorization: `Bearer ${token}` },

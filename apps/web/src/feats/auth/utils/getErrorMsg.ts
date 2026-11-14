@@ -1,8 +1,8 @@
-import { FormError } from '@/feats/auth/types'
-import { RegisterDTO } from '@repo/contracts/auth/schema'
+import { LoginFormError, RegisterFormError } from '@/feats/auth/types'
+import { LoginDTO, RegisterDTO } from '@repo/contracts/auth/schema'
 
-export function getErrorMsg(
-  formErrors: FormError[],
+export function getRegisterErrorMsg(
+  formErrors: RegisterFormError[],
   origin: keyof RegisterDTO,
 ): string | undefined {
   const matchedError = formErrors.find((error) => error.origin === origin)
@@ -55,6 +55,39 @@ export function getErrorMsg(
 
   if (code === 'connection') {
     return 'Conection error'
+  }
+
+  return matchedError.message || 'Something went wrong'
+}
+
+export function getLoginErrorMsg(
+  formErrors: LoginFormError[],
+  origin: keyof LoginDTO,
+): string | undefined {
+  const matchedError = formErrors.find((error) => error.origin === origin)
+
+  if (!matchedError) return
+
+  const code = matchedError.code
+
+  if (origin === 'username') {
+    if (code === 'too_small') {
+      return 'Fill in a valid username'
+    }
+
+    if (code === 'unexistent') {
+      return "This user doesn't exist"
+    }
+  }
+
+  if (origin === 'password') {
+    if (code === 'too_small') {
+      return 'Fill in a valid password'
+    }
+
+    if (code === 'unexistent') {
+      return "This user doesn't exist"
+    }
   }
 
   return matchedError.message || 'Something went wrong'

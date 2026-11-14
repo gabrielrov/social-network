@@ -1,8 +1,14 @@
-import { RegisterDTO } from '@repo/contracts/auth/schema'
+import { LoginDTO, RegisterDTO } from '@repo/contracts/auth/schema'
 import { AuthErrorCode } from '@repo/contracts/auth/types'
 
-export type FormError = {
-  code: AuthErrorCode
-  origin: keyof RegisterDTO | string
-  message: string
+export type RegisterFormError = {
+  origin: keyof RegisterDTO
+  code?: AuthErrorCode
+  message?: string
+}
+
+export type LoginFormError = {
+  origin: keyof LoginDTO
+  code?: AuthErrorCode
+  message?: string
 }

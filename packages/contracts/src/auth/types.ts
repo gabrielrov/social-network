@@ -14,3 +14,4 @@ export type AuthErrorCode =
   | 'password_mismatch'
   | 'conflict'
   | 'connection'
+  | 'unexistent'
