@@ -1,4 +1,4 @@
-import { getCurrentUser } from '@/feats/auth/api/get-current-user'
+import { getUserByToken } from '@/feats/auth/api/getUser'
 
 export async function authLoader(): Promise<object | null> {
   const token = localStorage.getItem('token')
@@ -8,7 +8,7 @@ export async function authLoader(): Promise<object | null> {
   }
 
   try {
-    return await getCurrentUser(token)
+    return await getUserByToken(token)
   } catch {
     return null
   }
