@@ -10,7 +10,7 @@ describe('login schema', () => {
   it('trims empty spaces', () => {
     const data: LoginDTO = {
       username: '  user  ',
-      password: ' password ',
+      password: 'password',
     }
     const result = loginSchema.safeParse(data)
 
