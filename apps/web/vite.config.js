@@ -10,8 +10,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  test: {
-    environment: 'jsdom', // dom api on vitest
-    setupFiles: './vitest-setup.js',
-  },
 })
