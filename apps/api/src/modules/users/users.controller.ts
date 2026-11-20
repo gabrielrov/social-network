@@ -1,5 +1,6 @@
 import { User } from '@/generated/prisma/client'
 import { findByUsername } from '@/modules/users/users.repository'
+import { toUserDTO } from '@/utils/DTOConvertion'
 import { Request, Response } from 'express'
 
 export async function getUserByToken(
@@ -8,7 +9,8 @@ export async function getUserByToken(
 ): Promise<void> {
   const user = req.user as User
 
-  res.json(user)
+  const userDTO = toUserDTO(user)
+  res.json(userDTO)
 }
 
 export async function getUserByUsername(
@@ -25,5 +27,6 @@ export async function getUserByUsername(
     return
   }
 
-  res.json(user)
+  const userDTO = toUserDTO(user)
+  res.json(userDTO)
 }

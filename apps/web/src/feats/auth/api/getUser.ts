@@ -1,7 +1,8 @@
 import { envWrapper } from '@/config/env'
 import { ApiError } from '@/errors'
+import { UserDTO } from '@repo/contracts/user/types'
 
-export async function getUser(username: string): Promise<object | null> {
+export async function getUser(username: string): Promise<UserDTO | null> {
   const res = await fetch(envWrapper.apiUrl + '/api/users/' + username)
 
   if (res.status === 404) {
@@ -13,7 +14,7 @@ export async function getUser(username: string): Promise<object | null> {
   return await res.json()
 }
 
-export async function getUserByToken(token: string): Promise<object | null> {
+export async function getUserByToken(token: string): Promise<UserDTO | null> {
   const res = await fetch(envWrapper.apiUrl + '/api/users/me', {
     headers: { Authorization: `Bearer ${token}` },
   })

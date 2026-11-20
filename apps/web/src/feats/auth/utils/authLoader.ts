@@ -1,6 +1,7 @@
 import { getUserByToken } from '@/feats/auth/api/getUser'
+import { UserDTO } from '@repo/contracts/user/types'
 
-export async function authLoader(): Promise<object | null> {
+export async function authLoader(): Promise<UserDTO | null> {
   const token = localStorage.getItem('token')
 
   if (!token) {
