@@ -5,7 +5,7 @@ import { FormButton } from '@/pages/auth/FormButton'
 import { LoginFormError } from '@/feats/auth/types'
 import { useState } from 'react'
 import { LoginDTO, loginSchema } from '@repo/contracts/auth/schema'
-import { getUser } from '@/feats/auth/api/getUser'
+import { getUser } from '@/feats/user/api/getUser'
 import { loginUser } from '@/feats/auth/utils/loginUser'
 import { getLoginErrorMsg } from '@/feats/auth/utils/getErrorMsg'
 

@@ -5,8 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { registerSchema, RegisterDTO } from '@repo/contracts/auth/schema'
 import { getRegisterErrorMsg } from '@/feats/auth/utils/getErrorMsg'
 import { RegisterFormError } from '@/feats/auth/types'
-import { registerUser } from '@/feats/auth/api/registerUser'
-import { getUser } from '@/feats/auth/api/getUser'
+import { registerUser } from '@/feats/user/api/registerUser'
+import { getUser } from '@/feats/user/api/getUser'
 import { loginUser } from '@/feats/auth/utils/loginUser'
 
 export function RegisterForm() {

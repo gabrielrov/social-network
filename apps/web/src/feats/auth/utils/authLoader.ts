@@ -1,4 +1,4 @@
-import { getUserByToken } from '@/feats/auth/api/getUser'
+import { getUserByToken } from '@/feats/user/api/getUser'
 import { UserDTO } from '@repo/contracts/user/types'
 
 export async function authLoader(): Promise<UserDTO | null> {
