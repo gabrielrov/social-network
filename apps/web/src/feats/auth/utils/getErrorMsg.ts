@@ -88,6 +88,10 @@ export function getLoginErrorMsg(
     if (code === 'unexistent') {
       return "This user doesn't exist"
     }
+
+    if (code === 'wrong_password') {
+      return "The password doesn't match the user"
+    }
   }
 
   return matchedError.message || 'Something went wrong'

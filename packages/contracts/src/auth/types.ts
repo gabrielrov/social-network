@@ -12,6 +12,7 @@ export type AuthErrorCode =
   | 'custom'
   | 'spaced'
   | 'password_mismatch'
+  | 'wrong_password'
   | 'conflict'
   | 'connection'
   | 'unexistent'

@@ -8,6 +8,7 @@ import { LoginDTO, loginSchema } from '@repo/contracts/auth/schema'
 import { getUser } from '@/feats/user/api/getUser'
 import { loginUser } from '@/feats/auth/utils/loginUser'
 import { getLoginErrorMsg } from '@/feats/auth/utils/getErrorMsg'
+import { ApiError } from '@/errors'
 
 export function LoginForm() {
   const [errors, setErrors] = useState<LoginFormError[]>([])
@@ -52,7 +53,12 @@ export function LoginForm() {
       await loginUser(data)
       setErrors([])
       navigate('/')
-    } catch {
+    } catch (err) {
+      if (err instanceof ApiError && err.status === 401) {
+        setErrors([{ origin: 'password', code: 'wrong_password' }])
+        return
+      }
+
       setErrors([{ origin: 'username', code: 'connection' }])
     } finally {
       setIsSubmitting(false)
