@@ -94,5 +94,9 @@ export function getLoginErrorMsg(
     }
   }
 
+  if (code === 'connection') {
+    return 'Connection error'
+  }
+
   return matchedError.message || 'Something went wrong'
 }
