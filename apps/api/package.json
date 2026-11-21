@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tsx --watch --inspect src/app.ts",
+    "seed": "prisma db seed",
     "test": "vitest",
     "build": "tsc",
     "start": "node dist/app.js",
