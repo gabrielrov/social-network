@@ -54,7 +54,7 @@ export function getRegisterErrorMsg(
   }
 
   if (code === 'connection') {
-    return 'Conection error'
+    return 'Connection error'
   }
 
   return matchedError.message || 'Something went wrong'

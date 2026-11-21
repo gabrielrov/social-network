@@ -7,7 +7,7 @@ import { getRegisterErrorMsg } from '@/feats/auth/utils/getErrorMsg'
 import { RegisterFormError } from '@/feats/auth/types'
 import { registerUser } from '@/feats/user/api/registerUser'
 import { getUser } from '@/feats/user/api/getUser'
-import { loginUser } from '@/feats/auth/utils/loginUser'
+import { loginUser } from '@/feats/auth/utils/login'
 
 export function RegisterForm() {
   const [errors, setErrors] = useState<RegisterFormError[]>([])

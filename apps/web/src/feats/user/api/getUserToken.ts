@@ -14,3 +14,14 @@ export async function getUserToken(data: LoginDTO): Promise<string> {
   const token = (await res.json()).token as string
   return token
 }
+
+export async function getGuestUserToken(): Promise<string> {
+  const res = await fetch(`${envWrapper.apiUrl}/api/auth/guest`, {
+    method: 'POST',
+  })
+
+  if (!res.ok) throw new ApiError(res.status)
+
+  const token = (await res.json()).token as string
+  return token
+}

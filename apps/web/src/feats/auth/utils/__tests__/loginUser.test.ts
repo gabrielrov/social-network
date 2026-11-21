@@ -1,4 +1,4 @@
-import { loginUser } from '@/feats/auth/utils/loginUser'
+import { loginUser } from '@/feats/auth/utils/login'
 import { getUserToken } from '@/feats/user/api/getUserToken'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
