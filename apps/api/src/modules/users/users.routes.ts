@@ -7,5 +7,5 @@ import { Router } from 'express'
 
 export const usersRouter = Router()
 
-usersRouter.get('/me', authenticate, getUserByToken)
+usersRouter.get('/@me', authenticate, getUserByToken)
 usersRouter.get('/:username', getUserByUsername)

@@ -79,7 +79,7 @@ describe('getUserByToken', () => {
 
     expect(await getUserByToken(token)).toBe(token)
 
-    expect(fetch).toHaveBeenCalledWith(envWrapper.apiUrl + '/api/users/me', {
+    expect(fetch).toHaveBeenCalledWith(envWrapper.apiUrl + '/api/users/@me', {
       headers: { Authorization: `Bearer ${token}` },
     })
   })

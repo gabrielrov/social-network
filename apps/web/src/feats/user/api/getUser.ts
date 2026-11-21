@@ -15,7 +15,7 @@ export async function getUser(username: string): Promise<UserDTO | null> {
 }
 
 export async function getUserByToken(token: string): Promise<UserDTO | null> {
-  const res = await fetch(envWrapper.apiUrl + '/api/users/me', {
+  const res = await fetch(envWrapper.apiUrl + '/api/users/@me', {
     headers: { Authorization: `Bearer ${token}` },
   })
 

@@ -15,3 +15,4 @@ export type AuthErrorCode =
   | 'conflict'
   | 'connection'
   | 'unexistent'
+  | 'symbol'

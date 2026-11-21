@@ -25,6 +25,14 @@ export const registerSchema = z
       })
     }
 
+    if (data.username.startsWith('@')) {
+      ctx.addIssue({
+        code: 'symbol' as never,
+        message: 'Username cannot start with an "@"',
+        path: ['username'],
+      })
+    }
+
     if (data.firstName.includes(' ')) {
       ctx.addIssue({
         code: 'spaced' as never,
