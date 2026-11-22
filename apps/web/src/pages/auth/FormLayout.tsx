@@ -1,4 +1,4 @@
-import brandIcon from '@/assets/brand/brandIcon.svg'
+import brandIconDay from '@/assets/brand/brandIconDay.svg'
 import React from 'react'
 
 interface FormLayoutProps {
@@ -14,7 +14,7 @@ export function FormLayout({ title, subtitle, children }: FormLayoutProps) {
         <div className="mb-9 space-y-0.5">
           <img
             className="mx-auto mb-4 w-25 select-none"
-            src={brandIcon}
+            src={brandIconDay}
             draggable="false"
             alt="brand logo"
           />

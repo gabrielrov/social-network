@@ -1,3 +1,4 @@
+import brandIconDay from '@/assets/brand/brandIconDay.svg'
 import { FormButton } from '@/pages/auth/FormButton'
 import { FormInput } from '@/pages/auth/FormInput'
 import React, { useState } from 'react'
