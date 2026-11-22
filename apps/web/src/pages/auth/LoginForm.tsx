@@ -67,6 +67,7 @@ export function LoginForm() {
 
   return (
     <div>
+      <title>Login</title>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4 text-sm">
           <FormInput

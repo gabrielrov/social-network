@@ -66,6 +66,7 @@ export function RegisterForm() {
 
   return (
     <div>
+      <title>Register</title>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4 text-sm">
           <FormInput
